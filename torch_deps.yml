@@ -1,0 +1,28 @@
+name: torch_deps
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  # Compiler packages, must be supported by CUDA
+  # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#host-compiler-support-policy
+  - compilers
+  - gcc>=11.4,<13.2
+  - gxx>=11.4,<13.2
+  - gfortran>=11.4,<13.2
+  - clang>=7,<17.0
+  # CUDA versions are determined by pytorch
+  - cudnn>=8.9.2,<9
+  - cuda-version>=12.1,<12.2
+  - cuda-compiler>=12.1,<12.2
+  - cuda-nvcc>=12.1,<12.2
+  - cuda-libraries-dev>=12.1,<12.2
+  - numpy==1.26.4
+  - pytorch=2.2.2
+  - pytorch-cuda=12.1
+  - torchaudio
+  - torchvision
+  # Force blas versions
+  - blas * mkl
+  - libblas=*=*mkl*
